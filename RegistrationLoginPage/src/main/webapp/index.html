@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<script src="validation.js">
+	
+</script>
+</head>
+<body style="background-color: lightgrey;">
+	<form name="myform" action=RegistrationController method="post">
+		<h3 style="color: tomato;">
+			<marquee width="100%" direction="left" height="100px"> For
+				Registration, please fill all the given field... </marquee>
+		</h3>
+
+		<table align="center">
+			<h1 align="center" style="color: red">
+				<u>Registration Form</u>
+			</h1>
+
+			<tr>
+				<td>FirstName:</td>
+				<td><input type="text" size="160" name="firstname"
+					id="firstname" placeholder="Enter your first name"
+					required="required">
+			<tr>
+				<td>MiddleName:</td>
+				<td><input type="text" size="160" name="middlename"
+					id="middlename" placeholder="Enter your middle name"
+					required="required">
+			<tr>
+				<td>LastName:</td>
+				<td><input type="text" size="160" name="lastname" id="lastname"
+					placeholder="Enter your last name" required="required">
+			<tr>
+				<td>Mobile No:</td>
+				<td><input type="text" size="160" name="mobile" id="mobile"
+					Placeholder="Enter your mobile no:" required="required">
+			<tr>
+				<td>Email:</td>
+				<td><input type="email" size="160" name="email" id="email"
+					placeholder="Enter here Email" required="required">
+			<tr>
+				<td>Address:</td>
+				<td><input type="text" size="160" name="address" id="address"
+					Placeholder="Enter Address" required="required">
+			<tr>
+				<td>Username:</td>
+				<td><input type="text" size="160" name="username"
+					Placeholder="Enter Username" required="required">
+			<tr>
+				<td>Password:</td>
+				<td><input type="password" size="160" name="password"
+					Placeholder="Enter Strong password" id="password" required="required">
+			<tr>
+				<td>Confirm Password:</td>
+				<td><input type="password" size="160" name="retypepassword"
+					Placeholder="Confirm Password" id="confirmpassword" required="required">
+			<tr>
+				<td><input type="submit" value="Save" name="submit"
+					onclick=" return validate();">
+					<button>
+						<a href="http://localhost:8082/RegistrationLoginPage/login.jsp">Login</a>
+					</button>
+				<td><button>
+						<a href="RegisteredMember.jsp">RegisteredMember</a>
+					</button></td>
+		</table>
+	</form>
+	<script type="text/javascript">
+		function validate() {
+			let first = document.getElementById("firstname").value;
+			let regex = /[a-z A]/;
+			if (regex.test(first)) {
+				//alert("sucess");
+			} else {
+				alert("invalid firstName");
+				return false;
+			}
+			let middle = document.getElementById("middlename").value;
+			regex = /[a-z]/;
+			if (regex.test(middle)) {
+				//alert("sucess");
+			} else {
+				alert("invalid middlename");
+				return false;
+			}
+			let last = document.getElementById("lastname").value;
+			regex = /[a-z]/;
+			if (regex.test(last)) {
+				//alert("sucess");
+			} else {
+				alert("invalid lastName");
+				return false;
+			}
+			let mobile = document.getElementById("mobile").value;
+			regex =  /^\d{10}$/;
+			if (regex.test(mobile)) {
+				//alert("sucess");
+			} else {
+				alert("invalid mobile no");
+				return false;
+			}
+			let password=document.getElementById("password").value;
+			let confirmpassword=document.getElementById("confirmpassword").value;
+			if(password==confirmpassword)
+			{
+				return true;
+			}
+			else{
+				alert("Your password and confirmation password do not match.");
+				return false;
+			}
+		}
+	</script>
+</body>
+</html>
